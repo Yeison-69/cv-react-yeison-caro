@@ -1,10 +1,10 @@
 import "./Cabecera.css";
 
 const user = {
-  nombre:"Brayan Andrey Maldonado Aguirre",
+  nombre:"Yeison Caro Orrego",
   cargo:"Desarrollador Back-End",
-  numero:"+57 3197967953",
-  correo:"brayanmald10@gmail.com"
+  numero:"+57 3014420725",
+  correo:"ycaroorrego@gmail.com"
 }
 
 export default function CabeceraCV() {
