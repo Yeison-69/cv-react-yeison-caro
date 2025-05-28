@@ -1,27 +1,29 @@
+// src/components/Educacion.jsx
+const formacion = [
+  { institucion: "SENA", curso: "Técnico en Programación de Software", año: 2022 },
+  { institucion: "Platzi", curso: "Curso de React.js", año: 2023 },
+  { institucion: "Google Actívate", curso: "Fundamentos de Marketing Digital", año: 2021 },
+  { institucion: "Coursera", curso: "Algoritmos y Estructuras de Datos", año: 2022 },
+  { institucion: "Alura", curso: "Lógica de Programación", año: 2023 },
+  { institucion: "Udemy", curso: "Desarrollo Web Completo", año: 2020 },
+  { institucion: "INEM", curso: "Bachillerato Técnico", año: 2024 },
+  { institucion: "IBM SkillsBuild", curso: "Introducción a la Nube", año: 2023 },
+  { institucion: "Oracle Next Education", curso: "BackEnd con Java", año: 2024 },
+  { institucion: "EDteam", curso: "Git y GitHub", año: 2021 },
+];
+
 export default function Educacion() {
   return (
-    <section>
-      <h3>Educación</h3>
+    <div>
+      <h2>Formación Académica y Complementaria</h2>
       <ul>
-        <li>
-          <strong>Ingeniería en Sistemas</strong> – Universidad Nacional (2018–2022)
-        </li>
-        <li>
-          <strong>Tecnólogo en Análisis y Desarrollo de Software</strong> – SENA (2016–2018)
-        </li>
-        <li>
-          <strong>Curso: Fundamentos de JavaScript</strong> – Platzi (2023)
-        </li>
-        <li>
-          <strong>Curso: Desarrollo Web con React</strong> – Udemy (2024)
-        </li>
-        <li>
-          <strong>Taller: Introducción a la Ciberseguridad</strong> – Cisco Networking Academy (2022)
-        </li>
-        <li>
-          <strong>Seminario: Diseño de Interfaces UX/UI</strong> – Google Activate (2023)
-        </li>
+        {formacion.map((edu, index) => (
+          <li key={index}>
+            <h3>{edu.curso}</h3>
+            <p>{edu.institucion} - {edu.año}</p>
+          </li>
+        ))}
       </ul>
-    </section>
+    </div>
   );
 }
