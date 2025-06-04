@@ -21,11 +21,11 @@ import Habilidades from "./Components/Habilidades";
 function App() {
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      {/* Cabecera */}
-      <CabeceraCV
-        nombre={cabecera.nombre}
-        profesion={cabecera.profesion}
-      />
+      {/* Cabcera */}
+   <CabeceraCV
+  nombre={cabecera.nombre}
+  profesion={cabecera.cargo} 
+/>
 
       {/* Perfil */}
       <Perfil texto={perfil.texto} />
