@@ -1,12 +1,12 @@
 // src/data/cvData.js
 export const cabecera = {
-  nombre: "Yeison Caro Orrego",
+  nombre: "Brayan Maldonado",
   cargo: "Desarrollador Back-End",
 };
 
 export const perfil = {
   texto:
-    "Tecnólogo en Análisis y Desarrollo de Software con experiencia en desarrollo web y móvil. Apasionado por la tecnología, con habilidades sólidas en programación, diseño de interfaces y gestión de proyectos. Me destaco por ser responsable, puntual en la entrega de trabajos y con capacidad para adaptarme a nuevos entornos tecnológicos. Con conocimientos en múltiples lenguajes como Python y Java, y dominio en frameworks modernos como React y Node.js."
+    "Desarrollo de Software con experiencia en desarrollo web y móvil. Apasionado por la tecnología, con habilidades sólidas en programación, diseño de interfaces y gestión de proyectos. Me destaco por ser responsable, puntual en la entrega de trabajos y con capacidad para adaptarme a nuevos entornos tecnológicos. Con conocimientos en múltiples lenguajes como Python y Java, y dominio en frameworks modernos como React y Node.js."
 };
 
 export const educacion = [
