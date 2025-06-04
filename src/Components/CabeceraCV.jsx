@@ -1,19 +1,12 @@
-import "./Cabecera.css";
+// src/components/CabeceraCV.jsx
+import React from "react";
 
-const user = {
-  nombre:"Yeison Caro Orrego",
-  cargo:"Desarrollador Back-End",
-  numero:"+57 3014420725",
-  correo:"ycaroorrego@gmail.com"
-}
-
-export default function CabeceraCV() {
+export default function CabeceraCV({ nombre, profesion }) {
   return (
     <header>
-      <h1>{user.nombre}</h1>
-      <h2>{user.cargo}</h2>
-      <h3>{user.numero}</h3>
-      <h4>{user.correo}</h4>
+      <h1>{nombre}</h1>
+      <h2>{profesion}</h2>
+      <hr />
     </header>
   );
 }
