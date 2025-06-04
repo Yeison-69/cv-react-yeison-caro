@@ -1,29 +1,28 @@
 // src/components/Educacion.jsx
-const formacion = [
-  { institucion: "SENA", curso: "Técnico en Programación de Software", año: 2022 },
-  { institucion: "Platzi", curso: "Curso de React.js", año: 2023 },
-  { institucion: "Google Actívate", curso: "Fundamentos de Marketing Digital", año: 2021 },
-  { institucion: "Coursera", curso: "Algoritmos y Estructuras de Datos", año: 2022 },
-  { institucion: "Alura", curso: "Lógica de Programación", año: 2023 },
-  { institucion: "Udemy", curso: "Desarrollo Web Completo", año: 2020 },
-  { institucion: "INEM", curso: "Bachillerato Técnico", año: 2024 },
-  { institucion: "IBM SkillsBuild", curso: "Introducción a la Nube", año: 2023 },
-  { institucion: "Oracle Next Education", curso: "BackEnd con Java", año: 2024 },
-  { institucion: "EDteam", curso: "Git y GitHub", año: 2021 },
-];
+import React from "react";
 
-export default function Educacion() {
+export default function Educacion({ estudios }) {
+  if (!estudios || estudios.length === 0) {
+    return (
+      <section>
+        <h3>Educación</h3>
+        <p>No se ha registrado formación académica.</p>
+        <hr />
+      </section>
+    );
+  }
+
   return (
-    <div>
-      <h2>Formación Académica y Complementaria</h2>
+    <section>
+      <h3>Educación</h3>
       <ul>
-        {formacion.map((edu, index) => (
-          <li key={index}>
-            <h3>{edu.curso}</h3>
-            <p>{edu.institucion} - {edu.año}</p>
+        {estudios.map(({ id, titulo, universidad, periodo }) => (
+          <li key={id}>
+            <strong>{titulo}</strong> - {universidad} ({periodo})
           </li>
         ))}
       </ul>
-    </div>
+      <hr />
+    </section>
   );
 }

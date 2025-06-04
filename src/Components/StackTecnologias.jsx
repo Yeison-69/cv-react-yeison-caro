@@ -1,27 +1,42 @@
 // src/components/StackTecnologias.jsx
-const stack = [
-  { nombre: "HTML", nivel: "Avanzado" },
-  { nombre: "CSS", nivel: "Avanzado" },
-  { nombre: "JavaScript", nivel: "Avanzado" },
-  { nombre: "React", nivel: "Intermedio" },
-  { nombre: "Node.js", nivel: "Intermedio" },
-  { nombre: "MongoDB", nivel: "Básico" },
-  { nombre: "Git", nivel: "Avanzado" },
-  { nombre: "Figma", nivel: "Intermedio" },
-];
+import React from "react";
 
-export default function StackTecnologias() {
+export default function StackTecnologias({ tecnologias }) {
+  // Función para asignar colores según el tipo de tecnología
+  const obtenerColor = (tipo) => {
+    switch (tipo) {
+      case "frontend":
+        return "blue";
+      case "backend":
+        return "green";
+      case "base de datos":
+        return "orange";
+      default:
+        return "gray";
+    }
+  };
+
+  if (!tecnologias || tecnologias.length === 0) {
+    return (
+      <section>
+        <h3>Stack de Tecnologías</h3>
+        <p>No se han registrado tecnologías.</p>
+        <hr />
+      </section>
+    );
+  }
+
   return (
-    <div>
-      <h2>Stack de Tecnologías</h2>
+    <section>
+      <h3>Stack de Tecnologías</h3>
       <ul>
-        {stack.map((tech, index) => (
-          <li key={index}>
-            {tech.nombre} - {tech.nivel}
-            {tech.nivel === "Avanzado" && <strong> ⭐</strong>}
+        {tecnologias.map(({ id, nombre, tipo }) => (
+          <li key={id} style={{ color: obtenerColor(tipo) }}>
+            {nombre} - <em>{tipo}</em>
           </li>
         ))}
       </ul>
-    </div>
+      <hr />
+    </section>
   );
 }
