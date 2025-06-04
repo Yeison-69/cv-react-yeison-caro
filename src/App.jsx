@@ -10,13 +10,13 @@ import {
   habilidades
 } from "./data/cvData";
 
-import CabeceraCV from "./components/CabeceraCV";
-import Perfil from "./components/Perfil";
-import Educacion from "./components/Educacion";
-import Experiencia from "./components/Experiencia";
-import StackTecnologias from "./components/StackTecnologias";
-import Proyectos from "./components/Proyectos";
-import Habilidades from "./components/Habilidades";
+import CabeceraCV from "./Components/CabeceraCV";
+import Perfil from "./Components/Perfil";
+import Educacion from "./Components/Educacion";
+import Experiencia from "./Components/Experiencia";
+import StackTecnologias from "./Components/StackTecnologias";
+import Proyectos from "./Components/proyecto";
+import Habilidades from "./Components/Habilidades";
 
 function App() {
   return (
