@@ -1,13 +1,13 @@
 // src/App.jsx
-import React from "react";
+import React, { useState } from "react";
 import {
   cabecera,
   perfil,
   educacion,
   experiencia,
-  stackTecnologias,
   proyectos,
-  habilidades
+  habilidades as habilidadesIniciales,
+  stackTecnologias as tecnologiasIniciales,
 } from "./data/cvData";
 
 import CabeceraCV from "./Components/CabeceraCV";
@@ -18,14 +18,31 @@ import StackTecnologias from "./Components/StackTecnologias";
 import Proyectos from "./Components/proyecto";
 import Habilidades from "./Components/Habilidades";
 
+// NUEVOS COMPONENTES
+import ToggleHabilidades from "./Components/ToggleHabilidades";
+import FormularioTecnologia from "./Components/FormularioTecnologia";
+
 function App() {
+  // Estado para habilidades (visibilidad)
+  const [mostrarHabilidades, setMostrarHabilidades] = useState(true);
+
+  // Estado para tecnologías dinámicas
+  const [tecnologias, setTecnologias] = useState(tecnologiasIniciales);
+
+  // Función para alternar visibilidad de habilidades
+  const toggleHabilidades = () => {
+    setMostrarHabilidades((prev) => !prev);
+  };
+
+  // Función para agregar nueva tecnología
+  const agregarTecnologia = (nuevaTec) => {
+    setTecnologias((prev) => [...prev, nuevaTec]);
+  };
+
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      {/* Cabcera */}
-   <CabeceraCV
-  nombre={cabecera.nombre}
-  profesion={cabecera.cargo} 
-/>
+      {/* Cabecera */}
+      <CabeceraCV nombre={cabecera.nombre} profesion={cabecera.cargo} />
 
       {/* Perfil */}
       <Perfil texto={perfil.texto} />
@@ -37,13 +54,19 @@ function App() {
       <Experiencia trabajos={experiencia} />
 
       {/* Stack de Tecnologías */}
-      <StackTecnologias tecnologias={stackTecnologias} />
+      <h3>Stack de Tecnologías</h3>
+      <FormularioTecnologia onAgregar={agregarTecnologia} />
+      <StackTecnologias tecnologias={tecnologias} />
 
-      {/* Proyectos (nuevo componente) */}
+      {/* Proyectos */}
       <Proyectos proyectos={proyectos} />
 
-      {/* Habilidades (nuevo componente) */}
-      <Habilidades habilidades={habilidades} />
+      {/* Toggle Habilidades */}
+      <ToggleHabilidades
+        visible={mostrarHabilidades}
+        toggleVisibilidad={toggleHabilidades}
+      />
+      {mostrarHabilidades && <Habilidades habilidades={habilidadesIniciales} />}
     </div>
   );
 }
