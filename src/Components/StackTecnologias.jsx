@@ -2,7 +2,6 @@
 import React from "react";
 
 export default function StackTecnologias({ tecnologias }) {
-  // Función para asignar colores según el tipo de tecnología
   const obtenerColor = (tipo) => {
     switch (tipo) {
       case "frontend":
@@ -30,11 +29,24 @@ export default function StackTecnologias({ tecnologias }) {
     <section>
       <h3>Stack de Tecnologías</h3>
       <ul>
-        {tecnologias.map(({ id, nombre, tipo }) => (
-          <li key={id} style={{ color: obtenerColor(tipo) }}>
-            {nombre} - <em>{tipo}</em>
-          </li>
-        ))}
+        {tecnologias.map((tec, index) => {
+          // Si es un objeto, muestra nombre y tipo
+          if (typeof tec === "object" && tec !== null) {
+            const { id, nombre, tipo } = tec;
+            return (
+              <li key={id || index} style={{ color: obtenerColor(tipo) }}>
+                {nombre} - <em>{tipo}</em>
+              </li>
+            );
+          }
+
+          // Si es string, solo muestra el nombre
+          return (
+            <li key={index} style={{ color: "gray" }}>
+              {tec}
+            </li>
+          );
+        })}
       </ul>
       <hr />
     </section>
