@@ -1,27 +1,34 @@
-// FormularioTecnologia.jsx
-import React, { useState } from 'react';
+// src/components/FormularioTecnologia.jsx
+import React, { useState } from "react";
 
-const FormularioTecnologia = ({ onAgregar }) => {
-  const [tecnologia, setTecnologia] = useState('');
+export default function FormularioTecnologia({ onAgregar }) {
+  const [nuevaTecnologia, setNuevaTecnologia] = useState("");
 
-  const handleChange = (e) => {
-    setTecnologia(e.target.value);
+  const manejarCambio = (e) => {
+    setNuevaTecnologia(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const manejarEnvio = (e) => {
     e.preventDefault();
-    if (tecnologia.trim()) {
-      onAgregar(tecnologia);
-      setTecnologia('');
+    const textoTrim = nuevaTecnologia.trim();
+    if (textoTrim) {
+      onAgregar(textoTrim);
+      setNuevaTecnologia("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={tecnologia} onChange={handleChange} placeholder="Nueva tecnología" />
-      <button type="submit">Agregar</button>
+    <form onSubmit={manejarEnvio} style={{ marginBottom: "20px" }}>
+      <input
+        type="text"
+        placeholder="Agregar nueva tecnología"
+        value={nuevaTecnologia}
+        onChange={manejarCambio}
+        required
+      />
+      <button type="submit" style={{ marginLeft: "10px" }}>
+        Agregar
+      </button>
     </form>
   );
-};
-
-export default FormularioTecnologia;
+}
